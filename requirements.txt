@@ -21,3 +21,5 @@ django-cors-headers==4.3.1
 
 # Utilidades
 python-dotenv==1.0.0
+
+gunicorn
