@@ -1,8 +1,13 @@
-from django.urls import path
-from . import views
+# Este es el archivo: django_api/titanic_api/urls.py
+
+from django.contrib import admin
+from django.urls import path, include  # <-- ¡Asegúrate de importar 'include'!
 
 urlpatterns = [
-    path('health/', views.health_check, name='health_check'),
-    path('predict/', views.predict_survival, name='predict_survival'),
-    path('model-info/', views.model_info, name='model_info'),
+    path('admin/', admin.site.urls),
+
+    # AÑADE ESTA LÍNEA:
+    # Esto le dice a Django que cualquier URL que empiece con 'api/'
+    # debe ser manejada por el archivo 'urls.py' de tu app 'predictions'.
+    path('api/', include('predictions.urls')), 
 ]
